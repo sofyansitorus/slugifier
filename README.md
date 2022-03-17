@@ -1,2 +1,4 @@
 # slugifier
-Created with CodeSandbox
+Slugify text online
+
+Demo: https://online-slugifier.netlify.app
