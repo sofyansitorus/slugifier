@@ -203,7 +203,14 @@ export default function App() {
                   onCopy={onCopy}
                   disabled={copyDisabled}
                 >
-                  <Button variant={copyVariant}>{getCopyText()}</Button>
+                  <Button
+                    style={{
+                      width: "80px"
+                    }}
+                    variant={copyVariant}
+                  >
+                    {getCopyText()}
+                  </Button>
                 </CopyToClipboard>
               </InputGroup>
             </Form.Group>
