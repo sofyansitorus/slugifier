@@ -152,7 +152,13 @@ export default function App() {
         <Card className="p-5">
           <Form>
             <Row>
-              <Col xs={7}>
+              <Col
+                xs={{
+                  span: 12,
+                  order: 3
+                }}
+                md={7}
+              >
                 <Form.Group className="mb-3" controlId="textInput">
                   <Form.Label>Text</Form.Label>
                   <Form.Control
@@ -164,7 +170,13 @@ export default function App() {
                   />
                 </Form.Group>
               </Col>
-              <Col xs={2}>
+              <Col
+                xs={{
+                  span: 6,
+                  order: 2
+                }}
+                md={2}
+              >
                 <Form.Group className="mb-3" controlId="inputLimit">
                   <Form.Label>Limit</Form.Label>
                   <Form.Control
@@ -178,7 +190,13 @@ export default function App() {
                   />
                 </Form.Group>
               </Col>
-              <Col xs={3}>
+              <Col
+                xs={{
+                  span: 6,
+                  order: 1
+                }}
+                md={3}
+              >
                 <Form.Group className="mb-3" controlId="inputSeparator">
                   <Form.Label>Separator</Form.Label>
                   <Form.Select
