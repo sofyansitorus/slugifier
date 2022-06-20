@@ -15,13 +15,15 @@ import {
 } from "react-bootstrap";
 import { CheckCircleFill, Github } from "react-bootstrap-icons";
 import CopyToClipboard from "react-copy-to-clipboard";
-import slugify from "slugify";
+import slug from "slug";
 import "./styles.css";
 
 const limitMin = 10;
 const limitDefault = 60;
 const defaultSeparator = "-";
 const allowedSeparators = ["-", "_"];
+
+const trim = (str, chars) => str.split(chars).filter(Boolean).join(chars);
 
 export default function App() {
   const [text, setText] = useState("");
@@ -76,16 +78,12 @@ export default function App() {
   };
 
   useEffect(() => {
-    const slugified = slugify(text, {
-      replacement: separator, // replace spaces with replacement character, defaults to `-`
-      remove: undefined, // remove characters that match regex, defaults to `undefined`
-      lower: true, // convert to lower case, defaults to `false`
-      strict: true, // strip special characters except replacement, defaults to `false`
-      locale: "en", // language code of the locale to use
-      trim: true // trim leading and trailing replacement chars, defaults to `true`
-    });
+    const textCleaned = text.replace(/-|_/gi, " ");
+    const textSlugified = slug(textCleaned, separator);
+    const textLimited = textSlugified.substring(0, limit);
+    const textTrimmed = trim(textLimited, separator);
 
-    setResult(slugified.substring(0, limit));
+    setResult(textTrimmed);
   }, [text, limit, separator]);
 
   useEffect(() => {
