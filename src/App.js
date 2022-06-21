@@ -134,7 +134,9 @@ export default function App() {
   const copyVariant = textIsEmpty ? "secondary" : "primary";
 
   return (
-    <ThemeProvider breakpoints={["sm", "xs", "xxs"]}>
+    <ThemeProvider
+      breakpoints={["xxxl", "xxl", "xl", "lg", "md", "sm", "xs", "xxs"]}
+    >
       <Navbar bg="light" expand="lg" className="mb-5">
         <Container>
           <Navbar.Brand href="#home">Slugifier</Navbar.Brand>
@@ -157,7 +159,10 @@ export default function App() {
                   span: 12,
                   order: 3
                 }}
-                md={7}
+                md={{
+                  span: 7,
+                  order: 1
+                }}
               >
                 <Form.Group className="mb-3" controlId="textInput">
                   <Form.Label>Text</Form.Label>
@@ -172,30 +177,13 @@ export default function App() {
               </Col>
               <Col
                 xs={{
-                  span: 6,
-                  order: 2
-                }}
-                md={2}
-              >
-                <Form.Group className="mb-3" controlId="inputLimit">
-                  <Form.Label>Limit</Form.Label>
-                  <Form.Control
-                    type="number"
-                    min="10"
-                    placeholder="Limit"
-                    size="lg"
-                    value={limit}
-                    onChange={onChangeLimit}
-                    onBlur={onBlurLimit}
-                  />
-                </Form.Group>
-              </Col>
-              <Col
-                xs={{
-                  span: 6,
+                  span: 8,
                   order: 1
                 }}
-                md={3}
+                md={{
+                  span: 3,
+                  order: 2
+                }}
               >
                 <Form.Group className="mb-3" controlId="inputSeparator">
                   <Form.Label>Separator</Form.Label>
@@ -208,6 +196,29 @@ export default function App() {
                     <option value="-">Dash</option>
                     <option value="_">Underscore</option>
                   </Form.Select>
+                </Form.Group>
+              </Col>
+              <Col
+                xs={{
+                  span: 4,
+                  order: 2
+                }}
+                md={{
+                  span: 2,
+                  order: 3
+                }}
+              >
+                <Form.Group className="mb-3" controlId="inputLimit">
+                  <Form.Label>Limit</Form.Label>
+                  <Form.Control
+                    type="number"
+                    min="10"
+                    placeholder="Limit"
+                    size="lg"
+                    value={limit}
+                    onChange={onChangeLimit}
+                    onBlur={onBlurLimit}
+                  />
                 </Form.Group>
               </Col>
             </Row>
